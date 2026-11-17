@@ -1,0 +1,9 @@
+{
+  "id": "pele-editor",
+  "name": "Pele Editor",
+  "version": "1.0.2",
+  "minAppVersion": "1.15.0",
+  "description": "Edit colors in Pele diagrams.",
+  "author": "Alex Hallajian",
+  "isDesktopOnly": false
+}

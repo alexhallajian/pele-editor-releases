@@ -1,0 +1,19 @@
+.pele-editor-series-preview {
+  display: flex;
+  gap: 3px;
+  margin: 0.75em 0;
+}
+
+.pele-editor-series-swatch {
+  height: 1.4em;
+  flex: 1;
+  border-radius: 3px;
+  background: var(--pele-editor-swatch-color);
+}
+
+.is-mobile :is(.markdown-preview-view, .cm-preview-code-block.cm-lang-mermaid)
+svg:is([class^="pele-"], [class*=" pele-"]) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
