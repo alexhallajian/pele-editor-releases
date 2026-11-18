@@ -1,9 +1,9 @@
 {
   "id": "pele-editor",
   "name": "Pele Editor",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "minAppVersion": "1.15.0",
-  "description": "Edit colors in Pele diagrams.",
+  "description": "Style Pele diagrams and export them as SVG or PNG.",
   "author": "Alex Hallajian",
   "isDesktopOnly": false
 }

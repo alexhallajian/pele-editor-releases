@@ -1,16 +1,16 @@
 # Pele Editor
 
-Style Mermaid diagrams rendered by [Pele](https://pele.run/) in Obsidian. Right-click a diagram element to change its color, apply a gradient across related elements, or pick a saved color preset. Pele Editor writes the styling back to the Mermaid block in your note.
+Style and export Mermaid diagrams rendered by [Pele](https://pele.run/) in Obsidian. Right-click a diagram element to change its color, apply a gradient across related elements, pick a saved color preset, or export an image for a social post or presentation. Pele Editor writes styling back to the Mermaid block in your note.
 
 ## Trial and pricing
 
-Pele Editor requires Obsidian 1.15.0 or later on desktop or mobile. In **Settings → Pele Editor**, choose **Start trial** to try all editing features free for seven days. After the trial, a one-time purchase of **$5 USD** is required to continue changing diagram colors and managing presets. Diagrams keep displaying the styles you already saved.
+Pele Editor requires Obsidian 1.15.0 or later on desktop or mobile. In **Settings → Pele Editor**, choose **Start trial** to try editing and image export free for seven days. After the trial, a one-time purchase of **$5 USD** is required to continue changing diagram colors, managing presets, and exporting images. Diagrams keep displaying the styles you already saved.
 
 To purchase, choose **Buy for $5** in the plugin settings. Dodo Payments emails your license key after purchase. Paste that key into **License key** and choose **Activate**.
 
 ## Privacy and network use
 
-Pele Editor stores the trial start time, presets, and license activation in your vault's plugin settings. Diagram styles are written to your notes and rendered locally.
+Pele Editor stores the trial start time, presets, and license activation in your vault's plugin settings. Diagram styles are written to your notes and rendered locally. Image export runs locally. It copies the selected diagram without changing your note or uploading it. Fonts available in the app are embedded when possible; export does not download remote fonts. On desktop, the save dialog writes only to the location you choose. On mobile, native sharing hands the image to the app you choose; the native bridge may keep a temporary image in the app cache. The explicit **Save to vault** fallback creates an image in **Pele exports**.
 
 Dodo Payments handles checkout and license verification. During activation, the plugin sends your license key and the label “Pele Editor” to Dodo Payments. After activation, it sends the key and activation ID to verify access when the plugin starts and once a day while it stays enabled. A previously verified license keeps editing available if the service is temporarily unreachable. Your notes and diagrams stay in Obsidian during these checks.
 
@@ -21,6 +21,18 @@ Dodo Payments handles checkout and license verification. During activation, the 
 3. Pick a color or choose one from the **Preset** dropdown, then click **Apply**.
 
 Choose **Reset color** to return the element to its series color or the diagram default.
+
+## Export images
+
+Right-click anywhere inside a rendered diagram and choose **Export…**. On mobile, press and hold the diagram, then release. Export requires an active trial or license.
+
+- **PNG** creates an image for Instagram, other social platforms, and slide presentations. Choose 1×, 2×, or 4× resolution. Very large images are reduced to a safe size for your device; the preview shows the output dimensions.
+- **SVG** keeps the diagram as a scalable vector image for compatible presentation and design apps.
+- Choose **Match Obsidian**, **Transparent**, or a custom **Solid color** background. Both formats support transparency. The preview's checkerboard is not included in the file.
+
+The export captures the complete rendered diagram, including colors, gradients, labels, and layout. Panning and zooming do not crop it. On desktop, **Save as…** opens the operating system's save dialog. On mobile, **Share…** opens native file sharing when Obsidian and the operating system support it for the selected format. Available destinations depend on the device and installed apps. If sharing is unavailable, **Save to vault** saves a uniquely named file in **Pele exports** without replacing an existing export.
+
+Check the preview before saving. Custom fonts that cannot be embedded may use a fallback, and receiving apps can differ in their SVG font support. Diagrams that reference external image files must embed those images first. For a social post with predictable background colors, use PNG with a solid background.
 
 ## Color series
 
@@ -51,4 +63,15 @@ Pele Editor supports the 32 diagram types in the [Pele examples](https://pele.ru
 
 ## Software license
 
-Pele Editor is proprietary software. This repository provides the compiled plugin files and public releases. The TypeScript source and development history are maintained in a separate private repository. See [LICENSE](LICENSE) for the usage terms and third-party notices.
+The original Pele Editor code is proprietary, and the source repository is private. See [LICENSE](LICENSE) for the usage terms and the licenses of the template and bundled components.
+
+## Local development
+
+Use Obsidian Desktop with Pele rendering. If you have access to the source repository, install dependencies and start the development build from that repository:
+
+```sh
+npm install
+npm run dev
+```
+
+For local testing, place the generated `main.js`, `manifest.json`, and `styles.css` together in `.obsidian/plugins/pele-editor/` inside a test vault. The stylesheet displays the Color Series swatch preview. Enable **Pele Editor** under **Settings → Community plugins**. If the plugin is already enabled, reload it after replacing the build.
