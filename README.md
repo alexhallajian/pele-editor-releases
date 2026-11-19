@@ -1,7 +1,8 @@
 # Pele Editor
 
-Style and export Mermaid diagrams rendered by [Pele](https://pele.run/) in Obsidian. Right-click a diagram element to change its color, apply a gradient across related elements, pick a saved color preset, or export an image for a social post or presentation. Pele Editor writes styling back to the Mermaid block in your note.
+Style, animate, and export Mermaid diagrams rendered by [Pele](https://pele.run/) in Obsidian. Right-click a diagram element to change its color, apply a gradient across related elements, pick a saved color preset, or export an image for a social post or presentation. Pele Editor writes styling back to the Mermaid block in your note.
 
+![Diagram styled with Pele Editor|284](images/venn-diagram.png)![Diagram styled with Pele Editor|376](images/scene-analysis-timeline.png)
 ## Trial and pricing
 
 Pele Editor requires Obsidian 1.15.0 or later on desktop or mobile. In **Settings → Pele Editor**, choose **Start trial** to try editing and image export free for seven days. After the trial, a one-time purchase of **$5 USD** is required to continue changing diagram colors, managing presets, and exporting images. Diagrams keep displaying the styles you already saved.
@@ -10,7 +11,7 @@ To purchase, choose **Buy for $5** in the plugin settings. Dodo Payments emails 
 
 ## Privacy and network use
 
-Pele Editor stores the trial start time, presets, and license activation in your vault's plugin settings. Diagram styles are written to your notes and rendered locally. Image export runs locally. It copies the selected diagram without changing your note or uploading it. Fonts available in the app are embedded when possible; export does not download remote fonts. On desktop, the save dialog writes only to the location you choose. On mobile, native sharing hands the image to the app you choose; the native bridge may keep a temporary image in the app cache. The explicit **Save to vault** fallback creates an image in **Pele exports**.
+Pele Editor stores the trial start time, presets, and license activation in your vault's plugin settings. Diagram styles are written to your notes and rendered locally. Image export runs locally. It copies the selected diagram without changing your note or uploading it. Fonts available in the app are embedded when possible; export does not download remote fonts. On desktop, the save dialog writes only to the location you choose. On Android, **Save to device** writes a user-requested copy into the public **Documents/Pele Editor** folder through the native file bridge. Older Android versions may request storage permission. **Open with…** writes a copy into the plugin's cache folder inside your vault and asks Android to open it in a compatible app. Copies older than 24 hours are removed when preparing a later export for another app; recent copies remain readable by receiving apps. On iOS, native sharing hands the image to the app you choose; the native bridge may keep a temporary image in the app cache. The explicit **Save to vault** fallback creates an image in **Pele exports**.
 
 Dodo Payments handles checkout and license verification. During activation, the plugin sends your license key and the label “Pele Editor” to Dodo Payments. After activation, it sends the key and activation ID to verify access when the plugin starts and once a day while it stays enabled. A previously verified license keeps editing available if the service is temporarily unreachable. Your notes and diagrams stay in Obsidian during these checks.
 
@@ -22,6 +23,8 @@ Dodo Payments handles checkout and license verification. During activation, the 
 
 Choose **Reset color** to return the element to its series color or the diagram default.
 
+![Diagram styled with Pele Editor](images/color-menu.png)
+
 ## Export images
 
 Right-click anywhere inside a rendered diagram and choose **Export…**. On mobile, press and hold the diagram, then release. Export requires an active trial or license.
@@ -30,9 +33,33 @@ Right-click anywhere inside a rendered diagram and choose **Export…**. On mobi
 - **SVG** keeps the diagram as a scalable vector image for compatible presentation and design apps.
 - Choose **Match Obsidian**, **Transparent**, or a custom **Solid color** background. Both formats support transparency. The preview's checkerboard is not included in the file.
 
-The export captures the complete rendered diagram, including colors, gradients, labels, and layout. Panning and zooming do not crop it. On desktop, **Save as…** opens the operating system's save dialog. On mobile, **Share…** opens native file sharing when Obsidian and the operating system support it for the selected format. Available destinations depend on the device and installed apps. If sharing is unavailable, **Save to vault** saves a uniquely named file in **Pele exports** without replacing an existing export.
+The default file name comes from the diagram title. An untitled mindmap uses its root label; other untitled diagrams use “Diagram.” You can edit the name before saving. The export captures the complete rendered diagram, including colors, gradients, labels, and layout. Panning and zooming do not crop it. On desktop, **Save as…** opens the operating system's save dialog. On Android, **Save to device** writes to **Documents/Pele Editor** and displays the saved path. It uses a unique file name for each export and verifies the saved size. This saves to a fixed public folder; it does not open an Android folder picker. If the installed Obsidian app lacks the native file bridge or storage permission is denied, the error is shown and **Save to vault** remains available.
+
+For Android **Gallery/Photos**, choose **PNG**, save to the device, then use **Files/My Files** to move the image from **Documents/Pele Editor** into **Pictures** (or a folder inside Pictures). The plugin does not directly register images in Android's photo library. Keep SVG for presentation and design apps that accept vector files.
+
+On Android, **Open with…** opens the compatible-app chooser, such as Gallery, Lightroom, or another app that accepts the selected image format. It appears when Obsidian provides the native file opener. **Save to device** and **Save to vault** remain available. To use the full sharing menu, open **Files/My Files → Documents → Pele Editor**, select a saved image, and choose **Share**.
+
+On iOS, **Share…** opens native file sharing when Obsidian and the operating system support it for the selected format. Available destinations depend on the device and installed apps. On either mobile platform, **Save to vault** saves a uniquely named file in **Pele exports** without replacing an existing export.
 
 Check the preview before saving. Custom fonts that cannot be embedded may use a fallback, and receiving apps can differ in their SVG font support. Diagrams that reference external image files must embed those images first. For a social post with predictable background colors, use PNG with a solid background.
+
+![Diagram styled with Pele Editor](images/export-menu.png)
+
+## Animate diagrams
+
+Right-click a rendered diagram and choose **Animate…**. On mobile, press and hold the diagram, then release. Animation uses a separate copy, preserving your note, colors, and layout. It requires an active trial or license.
+
+Choose **Gentle rise**, **Slide in**, **Spring pop**, **Soft fade**, or **Middle out**. Middle out starts at a mindmap’s root and expands toward its outer nodes; other diagrams reveal from the center of their content. Titles and legends do not shift that center. The pieces start hidden and arrive in a staggered sequence, with easing or a damped spring for weight. Choose a 2, 3, 4, or 6 second duration, play once or loop, and a transparent, theme, or solid background. **Replay** restarts the preview. With reduced motion enabled, the preview waits for Replay.
+
+**Match Obsidian** is the default background. **Video** is the first export option and is selected by default when the MP4 encoder is available; otherwise it is disabled and animated SVG is selected. Choose an export format, select **Prepare export**, then save. Desktop **Save as…** opens the system dialog. Android retains **Save to device**, **Open with…**, and **Save to vault**; iOS sharing is shown when supported for the prepared file. Closing the dialog cancels an export in progress.
+
+- **Animated SVG** keeps vector detail and transparency. It uses embedded CSS animation and includes no scripts. Open it in a browser or an app that supports SVG animation.
+- **Animated PNG** exports at 30 fps and preserves full transparency. It uses a `.png` extension; apps without animation support show the completed diagram as a still image. Large diagrams are scaled to fit the device. Export takes longer than SVG.
+- **MP4 video** is offered when the device provides a compatible encoder. It requires a solid or theme background and exports one entrance; repeat the clip in your editor if needed. Keep Obsidian visible during video export. MP4 is the option for video posts and presentations that accept video. Transparent backgrounds use animated PNG or SVG.
+
+The preview checkerboard is not included in exported files. Animation export runs locally and does not upload your diagram. Playback and accepted file types vary by receiving app.
+
+![Diagram styled with Pele Editor](images/animate-options.png)
 
 ## Color series
 
