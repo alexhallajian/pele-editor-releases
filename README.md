@@ -1,19 +1,8 @@
 # Pele Editor
 
-Style, animate, and export Mermaid diagrams rendered by [Pele](https://pele.run/) in Obsidian. Right-click a diagram element to change its color, apply a gradient across related elements, pick a saved color preset, or export an image for a social post or presentation. Pele Editor writes styling back to the Mermaid block in your note.
+Style, customize, animate, and export Mermaid diagrams rendered by [Pele](https://pele.run/) in Obsidian. Right-click a diagram element to change its color, apply a gradient across related elements, pick a saved color preset, or export an image for a social post or presentation. Pele Editor writes styling back to the Mermaid block in your note.
 
 ![Diagram styled with Pele Editor|284](images/venn-diagram.png)![Diagram styled with Pele Editor|376](images/scene-analysis-timeline.png)
-## Trial and pricing
-
-Pele Editor requires Obsidian 1.15.0 or later on desktop or mobile. In **Settings → Pele Editor**, choose **Start trial** to try editing and image export free for seven days. After the trial, a one-time purchase of **$5 USD** is required to continue changing diagram colors, managing presets, and exporting images. Diagrams keep displaying the styles you already saved.
-
-To purchase, choose **Buy for $5** in the plugin settings. Dodo Payments emails your license key after purchase. Paste that key into **License key** and choose **Activate**.
-
-## Privacy and network use
-
-Pele Editor stores the trial start time, presets, and license activation in your vault's plugin settings. Diagram styles are written to your notes and rendered locally. Image export runs locally. It copies the selected diagram without changing your note or uploading it. Fonts available in the app are embedded when possible; export does not download remote fonts. On desktop, the save dialog writes only to the location you choose. On Android, **Save to device** writes a user-requested copy into the public **Documents/Pele Editor** folder through the native file bridge. Older Android versions may request storage permission. **Open with…** writes a copy into the plugin's cache folder inside your vault and asks Android to open it in a compatible app. Copies older than 24 hours are removed when preparing a later export for another app; recent copies remain readable by receiving apps. On iOS, native sharing hands the image to the app you choose; the native bridge may keep a temporary image in the app cache. The explicit **Save to vault** fallback creates an image in **Pele exports**.
-
-Dodo Payments handles checkout and license verification. During activation, the plugin sends your license key and the label “Pele Editor” to Dodo Payments. After activation, it sends the key and activation ID to verify access when the plugin starts and once a day while it stays enabled. A previously verified license keeps editing available if the service is temporarily unreachable. Your notes and diagrams stay in Obsidian during these checks.
 
 ## Quick start
 
@@ -24,6 +13,29 @@ Dodo Payments handles checkout and license verification. During activation, the 
 Choose **Reset color** to return the element to its series color or the diagram default.
 
 ![Diagram styled with Pele Editor](images/color-menu.png)
+
+## Customize diagrams
+
+Right-click a node or another part of a diagram and choose **Customize**. On mobile, press and hold, release, then tap through the menus. The available choices depend on the diagram and the clicked element.
+
+- **Mindmap:** change the clicked root or node to Default, Rectangle, Rounded rectangle, Circle, Cloud, Bang, or Hexagon. Other nodes keep their shapes.
+- **Flowchart and Swimlane:** choose from 53 node shapes, grouped into common shapes, containers, documents, geometry, and symbols. Image/icon nodes retain their specialized rendering.
+- **Agentflow:** choose one of its six native shapes: Rounded rectangle (Task), Subroutine (Tool), Parallelogram (Input), Diamond (Decision), Lined document (Reference), or Hexagon (Action).
+- **Architecture:** change the clicked service or group icon to Cloud, Database, Disk, Internet, Server, or No icon. Use original icon restores an authored icon, including a custom pack or service text icon.
+- **Timeline:** choose left-to-right or top-to-bottom layout under Diagram settings → Layout → Direction.
+- **Block:** change an ordinary block to one of 14 shapes while retaining its grid position, span, label, and connections.
+- **Venn:** customize the clicked set or overlap with fill opacity, outline width/pattern, and bold/italic labels. An overlap also has a fill-color picker. **Diagram settings → All sets** applies appearance controls to all currently declared circles, replacing that property on any individually customized circles. You can customize a single circle again afterward.
+- **Diagram settings:** controls include radar grid shape, legend and scale; pie donut hole and legend position; XY labels and axes; sequence participant and message settings; connector curves, spacing, and other supported options.
+
+![Diagram styled with Pele Editor](images/customize-options.png)
+
+The menu provides 160 diagram settings across 29 types, plus controls for individual nodes, Architecture icons, Venn sets, and overlaps. Event Modeling, Ishikawa, and User Journey retain their color/export/animation menus. [The option reference](docs/CUSTOMIZATION-OPTIONS.md) lists the choices and their native settings for all 32 types.
+
+On desktop, Pele Editor uses the operating system's native menus for its full context-menu tree. This avoids Obsidian's stuck nested DOM submenus and does not change the application's menu preference. Mobile keeps the tap-through menus.
+
+Numeric, color, and text settings open a small dialog. **Use default** removes that setting's saved override. Choice menus show the current selection. **Reset diagram settings** restores the diagram's authored settings without clearing individual element overrides or colors. Venn sets and overlaps have **Reset appearance**. Flowchart, Agentflow, and block shape menus offer **Use original shape**; a mindmap's **Default** uses Pele's native default appearance for that node.
+
+Changes are saved to the selected Mermaid block and work in Reading view and Live Preview. Existing labels, relationships, colors, and other note content are preserved. An edited or stale block is rejected rather than overwritten. Customizations render locally and are included in image and animation exports.
 
 ## Export images
 
@@ -88,6 +100,18 @@ Starter presets are added once when you install or upgrade. Existing presets are
 
 Pele Editor supports the 32 diagram types in the [Pele examples](https://pele.run/examples), including flowcharts, timelines, sequence diagrams, Gantt charts, mindmaps, and architecture diagrams. Available color controls depend on the diagram type and the element you click.
 
+## Trial and pricing
+
+Pele Editor requires Obsidian 1.15.0 or later on desktop or mobile. In **Settings → Pele Editor**, choose **Start trial** to try coloring, diagram customization, and image/animation export free for seven days. After the trial, a one-time purchase of **$5 USD** is required to continue changing diagram colors and appearance, managing presets, and exporting images and animations. Diagrams keep displaying the styles you already saved.
+
+To purchase, choose **Buy for $5** in the plugin settings. Dodo Payments emails your license key after purchase. Paste that key into **License key** and choose **Activate**.
+
+## Privacy and network use
+
+Pele Editor stores the trial start time, presets, and license activation in your vault's plugin settings. Diagram styles are written to your notes and rendered locally. Image export runs locally. It copies the selected diagram without changing your note or uploading it. Fonts available in the app are embedded when possible; export does not download remote fonts. On desktop, the save dialog writes only to the location you choose. On Android, **Save to device** writes a user-requested copy into the public **Documents/Pele Editor** folder through the native file bridge. Older Android versions may request storage permission. **Open with…** writes a copy into the plugin's cache folder inside your vault and asks Android to open it in a compatible app. Copies older than 24 hours are removed when preparing a later export for another app; recent copies remain readable by receiving apps. On iOS, native sharing hands the image to the app you choose; the native bridge may keep a temporary image in the app cache. The explicit **Save to vault** fallback creates an image in **Pele exports**.
+
+Dodo Payments handles checkout and license verification. During activation, the plugin sends your license key and the label “Pele Editor” to Dodo Payments. After activation, it sends the key and activation ID to verify access when the plugin starts and once a day while it stays enabled. A previously verified license keeps editing available if the service is temporarily unreachable. Your notes and diagrams stay in Obsidian during these checks.
+
 ## Software license
 
 The original Pele Editor code is proprietary, and the source repository is private. See [LICENSE](LICENSE) for the usage terms and the licenses of the template and bundled components.
@@ -102,3 +126,4 @@ npm run dev
 ```
 
 For local testing, place the generated `main.js`, `manifest.json`, and `styles.css` together in `.obsidian/plugins/pele-editor/` inside a test vault. The stylesheet displays the Color Series swatch preview. Enable **Pele Editor** under **Settings → Community plugins**. If the plugin is already enabled, reload it after replacing the build.
+
