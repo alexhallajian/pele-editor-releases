@@ -1,15 +1,14 @@
-# Pele Editor 1.3.0 — Customize your diagrams
+# Pele Editor 1.4.0 — Build diagrams with a right-click
 
-Right-click a diagram and choose **Customize** to change supported shapes, icons, layout, labels, grids, legends, and other appearance settings directly in Obsidian. On mobile, press and hold, release, then tap through the menus.
+Create a diagram from Obsidian's note editor, then build it by right-clicking its parts.
 
-- Change the clicked Mindmap root or node shape, with seven choices.
-- Choose from 53 Flowchart/Swimlane shapes, six native Agentflow shapes, or 14 Block shapes.
-- Change Architecture service and group icons: Cloud, Database, Disk, Internet, Server, or No icon.
-- Switch Timeline layouts between left-to-right and top-to-bottom.
-- Style individual Venn sets and overlaps with opacity, outlines, and label controls. Overlaps also have a fill-color picker. **All sets** replaces the selected property across all circles; you can customize one circle again afterward.
-- Adjust supported diagram settings such as Radar polygon grids, Pie donut holes and legends, connector curves, spacing, and chart labels. There are 160 diagram settings across 29 types.
-- Desktop menus use native submenu handling to fix stuck nested menus. Mobile keeps tap-through navigation.
+- **Insert Pele chart** offers simple starters for all 32 diagram types. A command-palette picker is also available.
+- Add, rename, remove, and edit values with chart-specific forms and existing-node dropdowns.
+- Add Sankey root/peer nodes and connections, Pie slices, Kanban columns/cards, Mindmap children/siblings, Ishikawa categories/entries, and Venn sets/overlaps.
+- Insert Swimlane lanes and Timeline sections relative to the selected component. Add XY categories/plots and Radar axes/curves while keeping series values aligned.
+- Preview cascading removals and undo recent diagram edits.
+- Existing colors and supported Customize settings follow your edits, ready for image and animation export.
 
-Customizations are saved in the selected Mermaid block and included in image and animation exports. Colors and presets remain available alongside Customize. Use the reset actions to restore authored settings or individual element choices.
+This release also fixes Mindmap insertion at the end of a block, initializes YAML for new and pasted charts, and restores normal spacing in diagram-editing forms. Mobile keeps long-press menus and searchable pickers.
 
-Requires Obsidian 1.15.0 or later. The seven-day trial and $5 one-time unlock are unchanged.
+Requires Obsidian 1.15.0 or later. The seven-day trial and $5 one-time unlock continue to apply.

@@ -14,6 +14,14 @@ Choose **Reset color** to return the element to its series color or the diagram 
 
 ![Diagram styled with Pele Editor](images/color-menu.png)
 
+## Create diagrams with a right-click
+
+Right-click in the note editor and choose **Insert Pele chart** to start with any of 32 diagram types. Then right-click the rendered diagram to add components, rename labels, change values, and remove items.
+
+Forms guide you through chart-specific details: connect Sankey nodes, add Pie slices, build Mindmap branches, insert Kanban columns and cards, choose Venn overlaps, and edit XY or Radar series. **Choose element…** helps you find a small or overlapping part. Removal confirmations show the affected components, and **Undo last diagram edit** restores a recent builder change.
+
+Your colors and supported Customize settings stay with the diagram. Export the result as an image or animation for a presentation or social post.
+
 ## Customize diagrams
 
 Right-click a node or another part of a diagram and choose **Customize**. On mobile, press and hold, release, then tap through the menus. The available choices depend on the diagram and the clicked element.
